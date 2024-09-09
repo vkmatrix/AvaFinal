@@ -1,0 +1,306 @@
+html, body 
+{
+    height: 100%;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #c0ecff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000;
+}
+/*Scrollbar Style */
+::-webkit-scrollbar 
+{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track 
+{
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb 
+{
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover 
+{
+    background: #555;
+}
+.poppins-regular 
+{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.rubik-main-title 
+{
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+/* Header */
+.header-bar 
+{
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    width: 70%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo a 
+{
+    text-decoration: none;
+    color: #00f;
+    font-size: 1.7rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    transition: color 0.2s ease;
+}
+.logo a:hover,
+.logo a:active 
+{
+    color: #0056b3;
+}
+.logo 
+{
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #00f;
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+}
+.favicon 
+{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.nav-links 
+{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+}
+.nav-link 
+{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.3rem;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+    font-family: "Poppins", sans-serif;
+}
+.nav-link:hover 
+{
+    color: #00f;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #00f;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+/* Dropdown Menu */
+.dropdown 
+{
+    position: relative;
+}
+.dropdown-toggle::after 
+{
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+.dropdown-menu 
+{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    border: 1px solid #00f;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item 
+{
+    color: #000;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.1s ease;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item:hover 
+{
+    background-color: #00f;
+    color: #fff;
+}
+.dropdown:hover .dropdown-menu 
+{
+    display: block;
+}
+/* Chat Now Button */
+.chat-now-button 
+{
+    background-color: #00f;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 20px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.chat-now-button:hover 
+{
+    background-color: #fff;
+    color: #00f;
+    border: 2px solid #00f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Main Content */
+h1.display-4 
+{
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgba(8, 53, 255, 0.889);
+    font-family: 'Rubik', sans-serif;
+}
+p.lead.catchy-phrase 
+{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+/* Spline Viewer */
+spline-viewer 
+{
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+/* Responsive Styling */
+@media (max-width: 768px) 
+{
+    .header-bar 
+    {
+        width: 90%;
+        align-items: center; 
+        padding: 8px;
+        
+    }
+
+    .logo a 
+    {
+        font-size: 1.4rem;
+    }
+
+    .nav-links 
+    {
+        gap: 10px;
+    }
+
+    .nav-link 
+    {
+        font-size: 1rem;
+        padding: 10px; 
+        text-align: center;
+    }
+
+    .chat-now-button 
+    {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+
+    h1.display-4 
+    {
+        font-size: 2.5rem;
+    }
+
+    p.lead.catchy-phrase 
+    {
+        font-size: 1.1rem;
+    }
+
+    spline-viewer 
+    {
+        height: 500px;
+    }
+}
+
+@media (max-width: 576px) 
+{
+    .header-bar 
+    {
+        width: 90%;
+    }
+
+    .logo a 
+    {
+        font-size: 1.2rem;
+    }
+
+    .nav-links 
+    {         
+        gap: 5px; 
+        align-items: center; 
+    }
+
+    .nav-link 
+    {
+        font-size: 0.9rem; 
+        text-align: center;
+    }
+
+    .chat-now-button 
+    {
+        padding: 5px 15px;
+        font-size: 0.9rem;
+    }
+
+    h1.display-4 
+    {
+        font-size: 2rem;
+    }
+
+    p.lead.catchy-phrase 
+    {
+        font-size: 1rem;
+    }
+
+    spline-viewer 
+    {
+        height: 450px;
+    }
+}

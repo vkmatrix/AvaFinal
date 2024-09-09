@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Serene Hospitals</title>
+    <!-- Favicon -->
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/about.css">
+</head>
+<body>
+    <header class="header-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="/"><img src="static/logo.png" alt="Ava Logo" class="favicon">Ava</a>
+            </div>
+            <nav class="nav-links">
+                <div class="dropdown">
+                    <!--Dropdown-->
+                    <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Features</a>
+                    <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                        <li><a class="dropdown-item" href="/book">Book Appointment</a></li>                        
+                        <li><a class="dropdown-item" href="/reportgen">Generate Report</a></li>
+                        <li><a class="dropdown-item" href="/feedback">Feedback</a></li>
+                        <li><a class="dropdown-item" href="/patienthistory">Patient History</a></li>
+                        <li><a class="dropdown-item" href="/govtschemes">Scheme Eligibility</a></li>
+                        <li><a class="dropdown-item" href="/risk">Hospitalization Risk</a></li>
+                    </ul>
+                </div>
+                <a class="nav-link" href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container about-container">
+        <div class="row">
+            <!-- About Us Box -->
+            <section class="col-md-6 about-box">
+                <div class="curved-box">
+                    <h2 class="topic">About Us</h2>
+                    <p class="description">
+                        Welcome to Serene Hospitals, where our mission is to address patient needs with the utmost care and innovation. 
+                        We are dedicated to integrating advanced technology into healthcare to provide seamless and effective solutions. 
+                        Our focus on leveraging the latest tech ensures that every patient's journey is enhanced through smarter, more efficient care.
+                    </p>
+                </div>
+            </section>
+            <!-- Image-->
+            <section class="col-md-6 image-section">
+                <img src="static/hospital.jpg" alt="Serene Hospitals" class="hospital-image">
+            </section>
+        </div>
+    </div>
+    <!-- Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

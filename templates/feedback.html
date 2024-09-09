@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Serene Hospitals</title>
+    <!-- Favicon -->
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/mess.css">
+    <style>
+        .chat-container {
+            margin: 20px auto;
+            width: 80%; /* Adjust width as needed */
+            max-width: 800px; /* Optional: set a max-width */
+            text-align: center;
+        }
+        .message-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        .user-response {
+            background-color: #e0f7fa;
+        }
+        .gemini-message {
+            background-color: #fff3e0;
+        }
+        .text-input {
+            width: 100%; /* Full width */
+            height: 50px; /* Adjust height as needed */
+            padding: 10px; /* Add some padding */
+            box-sizing: border-box; /* Ensure padding and border are included in the total width and height */
+        }
+        .feedback-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="/"><img src="static/logo.png" alt="Logo" class="favicon">Ava</a>
+            </div>
+            <nav class="nav-links">
+                <div class="dropdown">
+                    <!--Dropdown-->
+                    <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Features</a>
+                    <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                        <li><a class="dropdown-item" href="/book">Book Appointment</a></li>
+                        <li><a class="dropdown-item" href="/reportgen">Generate Report</a></li>
+                        <li><a class="dropdown-item" href="/feedback">Feedback</a></li>
+                        <li><a class="dropdown-item" href="/patienthistory">Patient History</a></li>
+                        <li><a class="dropdown-item" href="/govtschemes">Scheme Eligibility</a></li>
+                        <li><a class="dropdown-item" href="/risk">Hospitalization Risk</a></li>
+                    </ul>
+                </div>
+                <a class="nav-link" href="#">About</a>
+            </nav>
+        </div>
+    </header>
+    <div class="feedback-container">
+        <form id="feedbackForm">
+            <label for="visitId">Visit ID:</label>
+            <input type="number" id="visitId" name="visitId" placeholder="Enter your visit ID" required>
+            <button type="submit">Start Chat</button>
+        </form>
+    </div>
+    <div class="chat-container" id="chatContainer" style="display:none;">
+        <!-- Display chat messages here -->
+    </div>
+    <div class="input-section" style="display:none;">
+        <form id="messageForm">
+            <input type="text" id="userMessage" name="message" class="text-input" placeholder="Type your message..." required>
+            <input type="hidden" id="exchangeCount" name="exchange_count" value="0">
+            <input type="hidden" id="systemInstruction" name="system_instruction" value="">
+            <button type="submit" class="send-button">Send</button>
+        </form>
+    </div>
+    <script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        fetch('/start-feedback', {
+            method: 'POST',
+            body: new FormData(this),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Display Ava's initial message
+                const chatContainer = document.getElementById('chatContainer');
+                const messageBox = document.createElement('div');
+                messageBox.className = 'message-box gemini-message';
+                messageBox.textContent = data.message;
+                chatContainer.appendChild(messageBox);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                // Set system instruction for future messages
+                document.getElementById('systemInstruction').value = data.system_instruction;
+
+                // Show chat and message form sections
+                document.querySelector('.feedback-container').style.display = 'none';
+                document.querySelector('.chat-container').style.display = 'block';
+                document.querySelector('.input-section').style.display = 'block';
+            } else {
+                alert('Error: ' + data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    document.getElementById('messageForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        fetch('/send-message', {
+            method: 'POST',
+            body: new FormData(this),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.response) {
+                // Display Gemini's response
+                const chatContainer = document.getElementById('chatContainer');
+                const userMessage = document.getElementById('userMessage').value;
+                
+                // Create and display user's message
+                const userMessageBox = document.createElement('div');
+                userMessageBox.className = 'message-box user-response';
+                userMessageBox.textContent = userMessage;
+                chatContainer.appendChild(userMessageBox);
+                
+                // Create and display Gemini's response
+                const geminiMessageBox = document.createElement('div');
+                geminiMessageBox.className = 'message-box gemini-message';
+                geminiMessageBox.textContent = data.response;
+                chatContainer.appendChild(geminiMessageBox);
+
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+
+                // Clear the user message input
+                document.getElementById('userMessage').value = '';
+                document.getElementById('exchangeCount').value = parseInt(document.getElementById('exchangeCount').value) + 1;
+            } else {
+                alert('Error: ' + data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    </script>
+</body>
+</html>

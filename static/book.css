@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+html, body 
+{
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #c0ecff;
+}
+/* Header Bar*/
+.header-bar 
+{
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+.logo a 
+{
+    text-decoration: none;
+    color: #00f;
+    font-size: 1.7rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.favicon 
+{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.logo a:hover, .logo a:active 
+{
+    color: #0056b3;
+}
+.nav-links 
+{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.nav-link 
+{
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+}
+.nav-link:hover 
+{
+    color: #00f;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #00f;
+}
+/* Dropdown Menu */
+.dropdown 
+{
+    position: relative;
+}
+.dropdown-toggle::after 
+{
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+.dropdown-menu 
+{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    border: 1px solid #00f;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item 
+{
+    color: #000;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.1s ease;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item:hover 
+{
+    background-color: #00f;
+    color: #fff;
+}
+.dropdown:hover .dropdown-menu 
+{
+    display: block;
+}
+.content-wrapper 
+{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    max-width: calc(100% - 20px); 
+    margin-left: 10px; 
+    margin-right: 10px; 
+    box-sizing: border-box; 
+}
+.combined-box 
+{
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    width: 40%; 
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+    margin-left: 10px; 
+}
+/* Image*/
+.image-box 
+{
+    flex: 1;
+    max-width: 40%;
+    box-sizing: border-box;
+    position: relative;
+    margin-right: 40px;
+}
+.box-section 
+{
+    margin-bottom: 20px;
+}
+.check-heading 
+{
+    font-weight: bold;
+    color: #000;
+}
+/* Input*/
+.input-custom 
+{
+    border-radius: 10px;
+    height: 45px;
+    padding: 10px;
+    margin-bottom: 15px;
+    color: #000;
+    flex-grow: 1;
+}
+.input-custom::placeholder 
+{
+    color: #000; 
+}
+.input-custom:focus 
+{
+    outline: none;
+}
+/* Label and Input Alignment */
+.input-wrapper 
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.input-wrapper .form-label 
+{
+    margin-bottom: 5px; 
+    color: #000; 
+}
+.input-wrapper .form-control 
+{
+    flex-grow: 1;
+}
+/* Result Box*/
+.result-box 
+{
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 80px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    color: #00f;
+    border: 2px solid #00f;
+    resize: vertical; 
+    overflow: auto;
+}
+/* Button*/
+.btn-primary 
+{
+    background-color: rgba(8, 53, 255, 0.889);
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    font-size: 16px;
+    color: #fff;
+}
+.btn-primary:hover 
+{
+    background-color: #003366;
+}
+#slotsFree 
+{
+    resize: both; 
+    overflow: auto;
+    
+}
+#consultationTime 
+{
+    resize: none;
+}
+/* Media Queries for Tablet and Mobile Design */
+@media (max-width: 992px) 
+{
+    .header-bar 
+    {
+        width: 90%; 
+        padding: 10px 15px;
+        flex-wrap: nowrap;
+    }
+    .logo a 
+    {
+        font-size: 1.5rem;
+    }
+    .nav-links 
+    {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end; 
+        gap: 10px; 
+        flex-wrap: nowrap; 
+    }
+    .nav-link 
+    {
+        font-size: 1rem; 
+        padding: 6px 12px;
+    }
+    .content-wrapper 
+    {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .combined-box 
+    {
+        max-width: 400px; 
+        width: 100%; 
+        margin: 0 auto;
+    }
+    .image-box 
+    {
+        display: none;
+    }
+}
+@media (max-width: 768px) 
+{
+    .header-bar 
+    {
+        width: 90%; 
+        padding: 8px 10px; 
+        flex-wrap: nowrap; 
+    }
+    .logo a 
+    {
+        font-size: 1.3rem; 
+    }
+    .nav-links 
+    {
+        flex: 1; 
+        display: flex; 
+        justify-content: flex-end; 
+        gap: 8px; 
+        flex-wrap: nowrap;
+    }
+    .nav-link 
+    {
+        font-size: 0.9rem; 
+        padding: 5px 10px;
+    }
+    .combined-box {
+        max-width: 400px; 
+        width: 100%; 
+        margin: 0 auto;
+    }
+}

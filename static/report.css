@@ -1,0 +1,247 @@
+html, body 
+{
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #c0ecff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000;
+}
+/* Header Bar*/
+.header-bar 
+{
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+.logo a 
+{
+    text-decoration: none;
+    color: #00f;
+    font-size: 1.7rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+.favicon 
+{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.logo a:hover, .logo a:active 
+{
+    color: #0056b3;
+}
+/* Navigation Links*/
+.nav-links 
+{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.nav-link 
+{
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1.25rem;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+}
+.nav-link:hover 
+{
+    color: #00f;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #00f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Dropdown Menu*/
+.dropdown 
+{
+    position: relative;
+    font-weight: 300;
+}
+.dropdown-toggle::after 
+{
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+.dropdown-menu 
+{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    border: 1px solid #00f;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item 
+{
+    color: #000;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.1s ease;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item:hover 
+{
+    background-color: #00f;
+    color: #fff;
+}
+.dropdown:hover .dropdown-menu 
+{
+    display: block;
+}
+/* Curved Box*/
+.curved-box 
+{
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
+    padding: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+.form-title 
+{
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.patient-form .form-control 
+{
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+.patient-form .btn 
+{
+    background-color: #00f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.patient-form .btn:hover 
+{
+    background-color: #fff;
+    color: #00f;
+    border: 2px solid #00f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/*Output Section*/
+.output-title 
+{
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#output 
+{
+    border-radius: 10px;
+    border: 2px solid #00f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    resize: both;
+    min-height: 300px;
+}
+.left-box 
+{
+    padding: 20px;
+}
+.right-box 
+{
+    padding: 20px;
+}
+/* Responsive*/
+@media (max-width: 768px) 
+{
+    .left-box, .right-box 
+    {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .header-bar 
+    {
+        width: 90%;
+    }
+
+    .nav-link 
+    {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    .form-title 
+    {
+        font-size: 1.3rem;
+    }
+
+    #output 
+    {
+        font-size: 0.9rem;
+    }
+}
+@media (max-width: 576px) 
+{
+    .logo a 
+    {
+        font-size: 1rem;
+    }
+
+    .nav-links 
+    {
+        gap: 5px;
+    }
+
+    .nav-link 
+    {
+        font-size: 0.8rem;
+    }
+
+    .favicon 
+    {
+        width: 24px;
+        height: 24px;
+    }
+}

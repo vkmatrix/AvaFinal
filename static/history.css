@@ -1,0 +1,275 @@
+html, body 
+{
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #c0ecff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000;
+}
+/* Header Bar*/
+.header-bar 
+{
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+/* Logo*/
+.logo 
+{
+    font-size: 1.7rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.ava-link 
+{
+    text-decoration: none;
+    color: #00f;
+    transition: color 0.3s;
+}
+.ava-link:hover,
+.ava-link:focus 
+{
+    color: #003366;
+}
+/* Navigation Links*/
+.nav-links 
+{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.nav-link 
+{
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.25rem;
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.1s ease;
+}
+.favicon 
+{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.nav-link:hover 
+{
+    color: #00f;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #00f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Dropdown*/
+.dropdown 
+{
+    position: relative;
+}
+.dropdown-toggle::after 
+{
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+.dropdown-menu 
+{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    border: 1px solid #00f;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item 
+{
+    color: #000;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.1s ease;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item:hover 
+{
+    background-color: #00f;
+    color: #fff;
+}
+.dropdown:hover .dropdown-menu 
+{
+    display: block;
+}
+/* Main Section */
+.content-section 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+/* Image */
+.vector-image 
+{
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+}
+.vector-image img 
+{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+/*form */
+.curved-box 
+{
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    padding: 30px;
+    margin: 20px auto;
+}
+.check-heading 
+{
+    font-weight: bold;
+}
+#patientId 
+{
+    border-radius: 10px;
+    height: 45px;
+}
+/* Button*/
+.btn-primary 
+{
+    background-color: rgba(8, 53, 255, 0.889);
+    border: none;
+    border-radius: 10px;
+    height: 45px;
+    font-size: 16px;
+    color: #fff;
+}
+.btn-primary:hover 
+{
+    background-color: #003366;
+}
+/* Result*/
+.result-container 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.result-box 
+{
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 80px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    color: #555;
+    resize: both;
+    overflow: auto;
+}
+@media (max-width: 768px) 
+{
+    .header-bar 
+    {
+        width: 90%;
+        padding: 8px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+    .nav-link 
+    {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    .curved-box 
+    {
+        padding: 20px;
+    }
+
+    .btn-primary 
+    {
+        height: 40px;
+    }
+
+    #patientId 
+    {
+        height: 40px;
+    }
+    .vector-image 
+    {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 576px) 
+{
+    .logo 
+    {
+        font-size: 1rem;
+    }
+
+    .nav-links 
+    {
+        gap: 5px;
+    }
+
+    .nav-link 
+    {
+        font-size: 0.7rem;
+    }
+
+    .curved-box 
+    {
+        padding: 15px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .vector-image 
+    {
+        display: none;
+    }
+}
+@media (min-width: 992px) 
+{
+    .vector-image img 
+    {
+        max-height: 500px; 
+        object-fit: cover; 
+    }
+}

@@ -1,0 +1,344 @@
+html, body 
+{
+    height: 100%;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #c0ecff;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000;
+}
+/* Scrollbar */
+::-webkit-scrollbar 
+{
+    width: 12px;
+}
+::-webkit-scrollbar-track 
+{
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb 
+{
+    background: #888;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover 
+{
+    background: #555;
+}
+.poppins-regular 
+{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* Header Bar */
+.header-bar 
+{
+    position: relative;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+.logo a 
+{
+    text-decoration: none;
+    color: #00f;
+    font-size: 1.7rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.favicon 
+{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.logo a:hover, .logo a:active 
+{
+    color: #0056b3;
+}
+.nav-links 
+{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.nav-link 
+{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.1s ease;
+}
+.nav-link:hover 
+{
+    color: #00f;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #00f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Dropdown Menu */
+.dropdown 
+{
+    position: relative;
+}
+.dropdown-toggle::after 
+{
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+.dropdown-menu 
+{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    border: 1px solid #00f;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item 
+{
+    color: #000;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.1s ease;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+}
+.dropdown-menu .dropdown-item:hover 
+{
+    background-color: #00f;
+    color: #fff;
+}
+.dropdown:hover .dropdown-menu 
+{
+    display: block;
+}
+/* Input Section */
+.input-section 
+{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-top: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 10px;
+    z-index: 1000;
+    height: 60px;
+}
+.text-input 
+{
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #0056b3;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+.send-button 
+{
+    width: 10%;
+    max-width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.send-button:hover 
+{
+    background-color: #003d80;
+}
+/* Chat Container */
+.chat-container 
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+    padding: 20px;
+    max-width: 70%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    width: 90%;
+    box-sizing: border-box;
+}
+/* User Message */
+.user-message 
+{
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+    max-width: 75%;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
+    word-wrap: break-word;
+}
+/* Gemini Message */
+.gemini-message 
+{
+    background-color: #fff;
+    border: 1px solid #0056b3;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px;
+    max-width: 75%;
+    align-self: flex-start;
+    text-align: left;
+    margin-right: auto;
+    word-wrap: break-word;
+}
+/* Media Queries */
+@media (max-width: 768px) 
+{
+    .input-section 
+    {
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo 
+    {
+        font-size: 1rem;
+    }
+    .text-input,
+    .send-button 
+    {
+        font-size: 0.9rem;
+    }
+    .text-input 
+    {
+        padding: 8px;
+    }
+    .send-button 
+    {
+        padding: 8px;
+        width: 15%;
+    }
+    .chat-container 
+    {
+        max-width: 90%; 
+        padding: 10px;
+    }
+    .user-message,
+    .gemini-message 
+    {
+        font-size: 0.9rem; 
+        padding: 8px;
+    }
+    .header-bar 
+    {
+        width: 90%;
+        padding: 8px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+    .nav-link 
+    {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+}
+@media (max-width: 576px) 
+{
+    .header-bar,
+    .input-section 
+    {
+        width: 90%;
+        padding: 6px 12px;
+    }
+    .input-section 
+    {
+        flex-direction: row;
+    }
+    .text-input 
+    {
+        flex: 1;
+        margin-right: 5px;
+    }
+    .send-button 
+    {
+        width: 20%;
+        padding: 6px 12px;
+    }
+    .logo 
+    {
+        font-size: 1rem;
+    }
+    .text-input,
+    .send-button 
+    {
+        font-size: 0.8rem;
+    }
+    .chat-container 
+    {
+        max-width: 90%;
+        padding: 8px;
+    }
+    .user-message,
+    .gemini-message 
+    {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+    .nav-links 
+    {
+        gap: 5px;
+    }
+    .nav-link 
+    {
+        font-size: 0.8rem;
+    }
+}

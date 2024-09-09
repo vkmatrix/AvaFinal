@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ava- Hospitalization Risk Prediction</title>
+    <!-- Favicon -->
+    <link rel="icon" href="static/logo.png" type="image/x-icon">
+    <!-- Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="static/risk.css">
+</head>
+<body>
+    <header class="header-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="/"><img src="static/logo.png" alt="Ava Logo" class="favicon">Ava</a>
+            </div>
+            <nav class="nav-links">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="featuresDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Features</a>
+                    <ul class="dropdown-menu" aria-labelledby="featuresDropdown">
+                        <li><a class="dropdown-item" href="/book">Book Appointment</a></li>
+                        <li><a class="dropdown-item" href="/reportgen">Generate Report</a></li>
+                        <li><a class="dropdown-item" href="/feedback">Feedback</a></li>
+                        <li><a class="dropdown-item" href="/patienthistory">Patient History</a></li>
+                        <li><a class="dropdown-item" href="/govtschemes">Scheme Eligibility</a></li>
+                        <li><a class="dropdown-item" href="/risk">Hospitalization Risk</a></li>
+                    </ul>
+                </div>
+                <a class="nav-link" href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Form -->
+    <div class="container risk-prediction-box">
+        <h2 class="box-title">Hospitalization Risk Prediction</h2><br>
+        <form id="riskForm">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" placeholder="Enter Age" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="gender" class="form-label">Gender</label>
+                    <input type="number" class="form-control" id="gender" placeholder="Female: 0, Male: 1" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="height" class="form-label">Height</label>
+                    <input type="number" class="form-control" id="height" placeholder="Enter Height in cm" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="weight" class="form-label">Weight</label>
+                    <input type="number" class="form-control" id="weight" placeholder="Enter Weight in kg" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="smokingDrinkingScore" class="form-label">Smoking & Drinking</label>
+                    <input type="number" class="form-control" id="smokingDrinkingScore" placeholder="Yes: 1, No: 0" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="dailySteps" class="form-label">Daily Steps</label>
+                    <input type="number" class="form-control" id="dailySteps" placeholder="Enter Daily Steps" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="nutritionScore" class="form-label">Nutrition Level</label>
+                    <input type="number" class="form-control" id="nutritionScore" placeholder="Score from 1 to 10" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="sleepingHours" class="form-label">Sleeping Hours</label>
+                    <input type="number" class="form-control" id="sleepingHours" placeholder="Enter Sleeping Hours" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="stressLevels" class="form-label">Stress Levels</label>
+                    <input type="number" class="form-control" id="stressLevels" placeholder="Score from 1 to 10" required>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" onclick="calculateRisk()">Calculate</button>
+            </div><br>
+            <div class="output-label text-center mt-3">
+                <p>Your Hospitalization Risk:</p>
+            </div>
+            <div class="output-box mt-2 text-center">
+                <span id="riskOutput">Your hospitalization risk will be displayed here</span>
+            </div>
+        </form>
+    </div>
+    <br>
+    <!-- Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function calculateRisk() {
+            const formData = {
+                age: document.getElementById('age').value,
+                gender: document.getElementById('gender').value,
+                height: document.getElementById('height').value,
+                weight: document.getElementById('weight').value,
+                smokingDrinkingScore: document.getElementById('smokingDrinkingScore').value,
+                dailySteps: document.getElementById('dailySteps').value,
+                nutritionScore: document.getElementById('nutritionScore').value,
+                sleepingHours: document.getElementById('sleepingHours').value,
+                stressLevels: document.getElementById('stressLevels').value
+            };
+
+            fetch('/calculate-risk', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('riskOutput').textContent = "Error: " + data.error;
+                } else {
+                    document.getElementById('riskOutput').textContent = "Your hospitalization risk is: " + data.risk;
+                }
+            })
+            .catch(error => {
+                document.getElementById('riskOutput').textContent = "Error: " + error;
+            });
+        }
+    </script>
+</body>
+</html>
