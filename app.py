@@ -124,7 +124,6 @@ def generate_report_text(visit_id):
                        f"reason for visit: {cause_of_visit}, symptoms: {symptoms}, "
                        f"past medical history: {patient_past_history}, medications: {medications}.")
 
-        genai.configure(api_key="AIzaSyAQqC3zoOsvabTZ7R7poU1jUzUHwJc6aNg")
 
         generation_config = {
             "temperature": 0.2,
@@ -618,7 +617,6 @@ def index():
 
 @app.route('/send-chat', methods=['POST'])
 def send_chat():
-    genai.configure(api_key="AIzaSyAQqC3zoOsvabTZ7R7poU1jUzUHwJc6aNg")
     generation_config = {
         "temperature": 0.35,
         "top_p": 0.50,
@@ -650,7 +648,6 @@ def send_chat():
 
 @app.route('/initial-message', methods=['GET'])
 def initial_message():
-    genai.configure(api_key="AIzaSyAQqC3zoOsvabTZ7R7poU1jUzUHwJc6aNg")
     generation_config = {
         "temperature": 0.35,
         "top_p": 0.50,
